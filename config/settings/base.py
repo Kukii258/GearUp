@@ -47,14 +47,7 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "gearup",
-        "USER": "postgres",
-        "PASSWORD": "0258",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
-    },
+    "default": env.db("DATABASE_URL", default="postgres://localhost/default"),
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
