@@ -9,28 +9,18 @@ from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
-from upgear.views import ItemViewSet
+from upgear.views import ItemListCreateView, ItemDetailView
 from upgear import views
-
-
-router = DefaultRouter()
-router.register(r"items", ItemViewSet)
 
 
 urlpatterns = [
 
     path("", views.index, name="index"),
 
-    path(
-        "api/token/",
-        TokenObtainPairView.as_view(),
-        name="token_obtain_pair",
-    ),  # Get token
-    path(
-        "api/token/refresh/",
-        TokenRefreshView.as_view(),
-        name="token_refresh",
-    ),  # Refresh token
+    path('items/', ItemListCreateView.as_view(), name='item-list'),
+    path('items/<int:pk>/', ItemDetailView.as_view(), name='item-detail'),  # Get token
+
+
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/",
