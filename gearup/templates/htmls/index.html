@@ -1,0 +1,71 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Auto Service Portal</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
+    <script type="module" src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <div class="garage-background"></div>
+    <div class="login-container">
+      <div class="login-box">
+        <div class="login-header">
+          <div class="logo-container">
+            <img src="{% static 'images/index/login_logo.png' %}"
+                 alt="Auto Service Logo"
+                 class="logo" />
+          </div>
+          <h1>Auto Service Portal</h1>
+          <p>Professional Automotive Management System</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <div class="input-with-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/542/542638.png"
+                   alt="Email"
+                   class="input-icon" />
+              <input type="email"
+                     id="email"
+                     name="email"
+                     placeholder="your@email.com"
+                     required />
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
+                   alt="Password"
+                   class="input-icon" />
+              <input type="password"
+                     id="password"
+                     name="password"
+                     placeholder="Enter your password"
+                     required />
+            </div>
+          </div>
+          <div class="form-footer">
+            <label class="remember-me">
+              <input type="checkbox" id="remember" />
+              <span>Remember this device</span>
+            </label>
+            <a href="dashboard.html" class="forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit" class="login-button">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828395.png"
+                 alt="Login"
+                 class="button-icon" />
+            Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -10,12 +10,17 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from upgear.views import ItemViewSet
+from upgear import views
+
 
 router = DefaultRouter()
 router.register(r"items", ItemViewSet)
 
 
 urlpatterns = [
+
+    path("", views.index, name="index"),
+
     path(
         "api/token/",
         TokenObtainPairView.as_view(),
