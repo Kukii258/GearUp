@@ -12,6 +12,22 @@ def index(request):
     return render(request, "htmls/index.html")
 
 
+def dashboard(request):
+    return render(request, "htmls/dashboard.html")
+
+def vozila(request):
+    return render(request, "htmls/vozila.html")
+
+def popravci(request):
+    return render(request, "htmls/popravci.html")
+
+def racuni(request):
+    return render(request, "htmls/racuni.html")
+
+def radionica(request):
+    return render(request, "htmls/radionica.html")
+
+
 
 class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Korisnik.objects.all()

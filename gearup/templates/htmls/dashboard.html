@@ -1,0 +1,225 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}Naslovnica - GearUp{% endblock %}
+{% block content %}
+
+  <head>
+    <title>Auto Servis Portal - Kontrolna Ploča</title>
+    <meta name="viewport" content="width=device-width" />
+    <script  src="{% static 'js/dashboard.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  </head>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <div class="header-search-container">
+            <div class="header-search">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Pretraži po broju šasije...">
+            </div>
+            <!-- Mobile Nav Toggle moved here -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+          <div class="header-profile">
+            <div class="header-icons">
+              <div class="message-badge">
+                <i class="fas fa-envelope"></i>
+                <span class="badge">2</span>
+                <!-- Message Popup -->
+                <div class="message-popup">
+                  <div class="message-popup-header">
+                    <h3>Poruke</h3>
+                    <a href="messages.html">Vidi sve</a>
+                  </div>
+                  <div class="message-list">
+                    <div class="message-item">
+                      <img src="https://ui-avatars.com/api/?name=Marko+Kovac" alt="Marko Kovac" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender">Marko Kovac</div>
+                        <div class="message-preview">Dobar dan, kada će biti gotov servis za BMW X5?</div>
+                        <div class="message-time">Prije 2 sata</div>
+                      </div>
+                    </div>
+                    <div class="message-item">
+                      <img src="https://ui-avatars.com/api/?name=Ana+Horvat" alt="Ana Horvat" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender">Ana Horvat</div>
+                        <div class="message-preview">Molim Vas informaciju o cijeni zamjene ulja za Audi A4.</div>
+                        <div class="message-time">Prije 5 sati</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="message-popup-footer">
+                    <a href="messages.html">Prikaži sve poruke</a>
+                  </div>
+                </div>
+              </div>
+              <span class="notification-badge">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+              </span>
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="dashboard-grid">
+          <!-- Quick Stats -->
+          <section class="stats-container">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(34, 197, 94, 0.1);">
+                <i class="fas fa-wrench" style="color: #22c55e;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Aktivni Popravci</h3>
+                <p class="stat-number">12</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 8% od jučer
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(14, 165, 233, 0.1);">
+                <i class="fas fa-car" style="color: #0ea5e9;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Vozila u Redu</h3>
+                <p class="stat-number">8</p>
+                <span class="stat-trend negative">
+                  <i class="fas fa-arrow-down"></i> 3% od jučer
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(168, 85, 247, 0.1);">
+                <i class="fas fa-file-invoice-dollar" style="color: #a855f7;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Današnji Prihod</h3>
+                <p class="stat-number">21.500 kn</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 12% od jučer
+                </span>
+              </div>
+            </div>
+          </section>
+
+          <div class="main-content-area">
+            <!-- Upcoming Services -->
+            <section class="upcoming-services">
+              <div class="section-header">
+                <h2>Nadolazeći Servisi</h2>
+                <div class="header-buttons">
+                  <button class="btn-primary" onclick="window.location.href='novi-popravak.html'">
+                    <i class="fas fa-plus"></i> Novi Popravak
+                  </button>
+                  <button class="btn-secondary" onclick="window.location.href='nadolazeci-servisi.html'">Prikaži Sve</button>
+                </div>
+              </div>
+              <div class="services-list">
+                <div class="service-item" onclick="window.location.href='servis-detalji.html'">
+                  <div class="service-time">
+                    <span class="date">15. Lis</span>
+                    <span class="time">09:00</span>
+                  </div>
+                  <div class="service-info">
+                    <h4>Volkswagen Golf</h4>
+                    <p>Godišnji servis održavanja</p>
+                  </div>
+                  <div class="service-status pending">Zakazano</div>
+                </div>
+                <div class="service-item" onclick="window.location.href='servis-detalji.html'">
+                  <div class="service-time">
+                    <span class="date">15. Lis</span>
+                    <span class="time">11:30</span>
+                  </div>
+                  <div class="service-info">
+                    <h4>Toyota Camry</h4>
+                    <p>Zamjena kočionih pločica</p>
+                  </div>
+                  <div class="service-status confirmed">Potvrđeno</div>
+                </div>
+                <div class="service-item" onclick="window.location.href='servis-detalji.html'">
+                  <div class="service-time">
+                    <span class="date">16. Lis</span>
+                    <span class="time">14:00</span>
+                  </div>
+                  <div class="service-info">
+                    <h4>Ford Focus</h4>
+                    <p>Popravak klima uređaja</p>
+                  </div>
+                  <div class="service-status pending">Zakazano</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Revenue Chart -->
+            <section class="revenue-chart">
+              <div class="section-header">
+                <h2>Pregled Prihoda</h2>
+                <div class="chart-period">
+                  <button class="period-btn active">Tjedan</button>
+                  <button class="period-btn">Mjesec</button>
+                  <button class="period-btn">Godina</button>
+                </div>
+              </div>
+              <canvas id="revenueChart"></canvas>
+            </section>
+          </div>
+
+          <!-- Recent Repairs -->
+          <section class="recent-repairs">
+            <div class="section-header">
+              <h2>Nedavni Popravci</h2>
+              <button class="btn-secondary" onclick="window.location.href='popravci.html'">Prikaži Sve</button>
+            </div>
+            <div class="repairs-list">
+              <div class="repair-item" onclick="window.location.href='popravak-detalji.html'">
+                <div class="repair-info">
+                  <h4>BMW X5</h4>
+                  <p>Zamjena kočionog sustava</p>
+                  <span class="repair-id">ID: #POP-2023-001</span>
+                </div>
+                <div class="repair-status">
+                  <span class="status in-progress">U Tijeku</span>
+                  <span class="time">prije 2 sata</span>
+                </div>
+              </div>
+              <div class="repair-item" onclick="window.location.href='popravak-detalji.html'">
+                <div class="repair-info">
+                  <h4>Audi A4</h4>
+                  <p>Zamjena ulja i filtera</p>
+                  <span class="repair-id">ID: #POP-2023-002</span>
+                </div>
+                <div class="repair-status">
+                  <span class="status completed">Završeno</span>
+                  <span class="time">prije 4 sata</span>
+                </div>
+              </div>
+              <div class="repair-item" onclick="window.location.href='popravak-detalji.html'">
+                <div class="repair-info">
+                  <h4>Mercedes C200</h4>
+                  <p>Dijagnostika motora i podešavanje</p>
+                  <span class="repair-id">ID: #POP-2023-003</span>
+                </div>
+                <div class="repair-status">
+                  <span class="status pending">Na Čekanju</span>
+                  <span class="time">prije 5 sati</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}GearUp - Računi{% endblock %}
+{% block content %}
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <script  src="{% static 'js/racuni.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/racuni.css' %}" />
+  </head>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Računi</h1>
+          <div class="header-profile">
+            <span class="notification-badge">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </span>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="content-container">
+          <div class="action-bar">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Pretraži po ID računa..." id="searchInput">
+            </div>
+            <button class="btn-primary" id="newInvoiceBtn">
+              <i class="fas fa-plus"></i> Novi Račun
+            </button>
+          </div>
+
+          <!-- New Invoice Form (Initially Hidden) -->
+          <div class="invoice-form-container" id="invoiceForm" style="display: none;">
+            <h2>Novi Račun</h2>
+            <form id="newInvoiceForm" class="invoice-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="repairId">ID Popravka</label>
+                  <input type="text" id="repairId" name="repairId" required class="form-control" placeholder="Unesite ID popravka">
+                </div>
+                <div class="form-group">
+                  <label for="amount">Cijena (kn)</label>
+                  <input type="number" id="amount" name="amount" required class="form-control" placeholder="Unesite cijenu">
+                </div>
+                <div class="form-group">
+                  <label for="date">Datum</label>
+                  <input type="date" id="date" name="date" required class="form-control">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="invoiceImage">Slika Računa</label>
+                <div class="file-upload">
+                  <input type="file" id="invoiceImage" name="invoiceImage" accept="image/*" class="file-input">
+                  <button type="button" class="btn-secondary upload-btn">
+                    <i class="fas fa-upload"></i> Učitaj Sliku
+                  </button>
+                  <span class="file-name">Nije odabrana datoteka</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" id="cancelInvoiceBtn">
+                  <i class="fas fa-times"></i> Odustani
+                </button>
+                <button type="submit" class="btn-primary">
+                  <i class="fas fa-save"></i> Spremi Račun
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Invoices List -->
+          <div class="invoices-list">
+            <div class="invoice-card">
+              <div class="invoice-header">
+                <div class="invoice-title">
+                  <h3>RAC-2023-001</h3>
+                  <span class="repair-ref">Popravak: POP-2023-001</span>
+                </div>
+                <span class="invoice-amount">2.500,00 kn</span>
+              </div>
+              <div class="invoice-details">
+                <p><strong>Datum:</strong> 12.10.2023</p>
+                <p><strong>Status:</strong> <span class="status paid">Plaćeno</span></p>
+              </div>
+              <div class="invoice-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-eye"></i> Pregled
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-download"></i> Preuzmi PDF
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+
+            <div class="invoice-card">
+              <div class="invoice-header">
+                <div class="invoice-title">
+                  <h3>RAC-2023-002</h3>
+                  <span class="repair-ref">Popravak: POP-2023-002</span>
+                </div>
+                <span class="invoice-amount">1.800,00 kn</span>
+              </div>
+              <div class="invoice-details">
+                <p><strong>Datum:</strong> 11.10.2023</p>
+                <p><strong>Status:</strong> <span class="status pending">Na Čekanju</span></p>
+              </div>
+              <div class="invoice-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-eye"></i> Pregled
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-download"></i> Preuzmi PDF
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+{% endblock %}

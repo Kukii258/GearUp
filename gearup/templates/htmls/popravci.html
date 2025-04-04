@@ -1,0 +1,102 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}Popravci - GearUp{% endblock %}
+{% block content %}
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <script  src="{% static 'js/popravci.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/popravci.css' %}" />
+
+  </head>
+
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Popravci</h1>
+          <div class="header-profile">
+            <span class="notification-badge">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </span>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="content-container">
+          <div class="action-bar">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Pretraži po broju šasije..." id="searchInput">
+            </div>
+            <button class="btn-primary" onclick="window.location.href='novi-popravak.html'">
+              <i class="fas fa-plus"></i> Novi Popravak
+            </button>
+          </div>
+
+          <!-- Repairs List -->
+          <div class="repairs-list">
+            <div class="repair-card">
+              <div class="repair-header">
+                <div class="repair-title">
+                  <h3>BMW X5</h3>
+                  <span class="repair-id">#POP-2023-001</span>
+                </div>
+                <span class="repair-status in-progress">U Tijeku</span>
+              </div>
+              <div class="repair-details">
+                <p><strong>Broj Šasije:</strong> WBAKF4109J9D48437</p>
+                <p><strong>Datum:</strong> 12.10.2023</p>
+                <p><strong>Kilometri:</strong> 125,000</p>
+                <p><strong>Opis:</strong> Zamjena kočionog sustava, pregled ovjesa</p>
+              </div>
+              <div class="repair-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-eye"></i> Detalji
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+
+            <div class="repair-card">
+              <div class="repair-header">
+                <div class="repair-title">
+                  <h3>Audi A4</h3>
+                  <span class="repair-id">#POP-2023-002</span>
+                </div>
+                <span class="repair-status completed">Završeno</span>
+              </div>
+              <div class="repair-details">
+                <p><strong>Broj Šasije:</strong> WAUZZZ8K9NA123456</p>
+                <p><strong>Datum:</strong> 11.10.2023</p>
+                <p><strong>Kilometri:</strong> 95,000</p>
+                <p><strong>Opis:</strong> Redovni servis, zamjena ulja i filtera</p>
+              </div>
+              <div class="repair-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-eye"></i> Detalji
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

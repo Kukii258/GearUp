@@ -1,0 +1,131 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}GearUp - Vozila{% endblock %}
+{% block content %}
+  <head>
+    <title>Auto Servis Portal - Vozila</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script  src="{% static 'js/vozila.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/vozila.css' %}" />
+
+  </head>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Vozila</h1>
+          <div class="header-profile">
+            <span class="notification-badge">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </span>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="content-container">
+          <div class="action-bar">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Pretraži po broju šasije..." id="searchInput">
+            </div>
+            <button class="btn-primary" id="newVehicleBtn">
+              <i class="fas fa-plus"></i> Novo Vozilo
+            </button>
+          </div>
+
+          <!-- New Vehicle Form (Initially Hidden) -->
+          <div class="vehicle-form-container" id="vehicleForm" style="display: none;">
+            <h2>Novo Vozilo</h2>
+            <form id="newVehicleForm" class="vehicle-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="chassisNumber">Broj Šasije</label>
+                  <input type="text" id="chassisNumber" name="chassisNumber" required class="form-control" placeholder="Unesite broj šasije">
+                </div>
+                <div class="form-group">
+                  <label for="manufacturer">Proizvođač</label>
+                  <input type="text" id="manufacturer" name="manufacturer" required class="form-control" placeholder="Unesite proizvođača">
+                </div>
+                <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" id="model" name="model" required class="form-control" placeholder="Unesite model">
+                </div>
+                <div class="form-group">
+                  <label for="color">Boja</label>
+                  <input type="text" id="color" name="color" required class="form-control" placeholder="Unesite boju">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" id="cancelVehicleBtn">
+                  <i class="fas fa-times"></i> Odustani
+                </button>
+                <button type="submit" class="btn-primary">
+                  <i class="fas fa-save"></i> Spremi Vozilo
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Vehicles List -->
+          <div class="vehicles-list">
+            <div class="vehicle-card">
+              <div class="vehicle-header">
+                <div class="vehicle-title">
+                  <h3>BMW X5</h3>
+                  <span class="vehicle-id">WBAKF4109J9D48437</span>
+                </div>
+              </div>
+              <div class="vehicle-details">
+                <p><strong>Proizvođač:</strong> BMW</p>
+                <p><strong>Model:</strong> X5</p>
+                <p><strong>Boja:</strong> Crna</p>
+              </div>
+              <div class="vehicle-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-history"></i> Povijest Servisa
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+
+            <div class="vehicle-card">
+              <div class="vehicle-header">
+                <div class="vehicle-title">
+                  <h3>Audi A4</h3>
+                  <span class="vehicle-id">WAUZZZ8K9NA123456</span>
+                </div>
+              </div>
+              <div class="vehicle-details">
+                <p><strong>Proizvođač:</strong> Audi</p>
+                <p><strong>Model:</strong> A4</p>
+                <p><strong>Boja:</strong> Srebrna</p>
+              </div>
+              <div class="vehicle-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-history"></i> Povijest Servisa
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

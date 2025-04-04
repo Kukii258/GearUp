@@ -1,0 +1,140 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}GearUp - Radionica{% endblock %}
+{% block content %}
+  <head>
+    <meta name="viewport" content="width=device-width" />
+
+    <script  src="{% static 'js/radionica.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/radionica.css' %}" />
+
+  </head>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Radionica</h1>
+          <div class="header-profile">
+            <div class="header-icons">
+              <div class="message-badge">
+                <i class="fas fa-envelope"></i>
+                <span class="badge">2</span>
+              </div>
+              <span class="notification-badge">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+              </span>
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="content-container">
+          <!-- Workshop Info -->
+          <div class="workshop-info">
+            <div class="info-card">
+              <h2>Informacije o Radionici</h2>
+              <div class="info-details">
+                <p><strong>ID:</strong> RAD-001</p>
+                <p><strong>Ime Radionice:</strong> Auto Servis Zagreb</p>
+                <p><strong>Adresa:</strong> Zagrebačka ulica 123, 10000 Zagreb</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mechanics Section -->
+          <div class="mechanics-section">
+            <div class="section-header">
+              <h2>Mehaničari</h2>
+              <button class="btn-primary" id="newMechanicBtn">
+                <i class="fas fa-plus"></i> Dodaj Mehaničara
+              </button>
+            </div>
+
+            <!-- New Mechanic Form (Initially Hidden) -->
+            <div class="mechanic-form-container" id="mechanicForm" style="display: none;">
+              <h3>Novi Mehaničar</h3>
+              <form id="newMechanicForm" class="mechanic-form">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="firstName">Ime</label>
+                    <input type="text" id="firstName" name="firstName" required class="form-control" placeholder="Unesite ime">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Prezime</label>
+                    <input type="text" id="lastName" name="lastName" required class="form-control" placeholder="Unesite prezime">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required class="form-control" placeholder="Unesite email">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Broj Telefona</label>
+                    <input type="tel" id="phone" name="phone" required class="form-control" placeholder="Unesite broj telefona">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Lozinka</label>
+                    <input type="password" id="password" name="password" required class="form-control" placeholder="Unesite lozinku">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirmPassword">Potvrda Lozinke</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required class="form-control" placeholder="Potvrdite lozinku">
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn-secondary" id="cancelMechanicBtn">
+                    <i class="fas fa-times"></i> Odustani
+                  </button>
+                  <button type="submit" class="btn-primary">
+                    <i class="fas fa-save"></i> Spremi
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <!-- Mechanics List -->
+            <div class="mechanics-list">
+              <div class="mechanic-card">
+                <img src="https://ui-avatars.com/api/?name=Marko+Kovač" alt="Marko Kovač" class="mechanic-avatar">
+                <div class="mechanic-info">
+                  <h3>Marko Kovač</h3>
+                  <p><i class="fas fa-envelope"></i> marko.kovac@autoservis.hr</p>
+                  <p><i class="fas fa-phone"></i> +385 91 234 5678</p>
+                </div>
+                <div class="mechanic-actions">
+                  <button class="btn-secondary">
+                    <i class="fas fa-edit"></i> Uredi
+                  </button>
+                  <button class="btn-secondary">
+                    <i class="fas fa-trash"></i> Obriši
+                  </button>
+                </div>
+              </div>
+
+              <div class="mechanic-card">
+                <img src="https://ui-avatars.com/api/?name=Ana+Horvat" alt="Ana Horvat" class="mechanic-avatar">
+                <div class="mechanic-info">
+                  <h3>Ana Horvat</h3>
+                  <p><i class="fas fa-envelope"></i> ana.horvat@autoservis.hr</p>
+                  <p><i class="fas fa-phone"></i> +385 91 234 5679</p>
+                </div>
+                <div class="mechanic-actions">
+                  <button class="btn-secondary">
+                    <i class="fas fa-edit"></i> Uredi
+                  </button>
+                  <button class="btn-secondary">
+                    <i class="fas fa-trash"></i> Obriši
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <title>
+      {% block title %}{% endblock %}
+    </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  </head>
+  <body>
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <img src="{% static 'images/dashboard/logo.png' %}" alt="Auto Servis Logo" class="sidebar-logo">
+          <h2>Auto Servis</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="{% url 'dashboard' %}" class="nav-item dashboard">
+            <i class="fas fa-tachometer-alt"></i>
+            Kontrolna Ploča
+          </a>
+          <a href="{% url 'vozila' %}" class="nav-item vozila">
+            <i class="fas fa-car"></i>
+            Vozila
+          </a>
+          <a href="{% url 'popravci' %}" class="nav-item popravci">
+            <i class="fas fa-wrench"></i>
+            Popravci
+          </a>
+          <a href="{% url 'racuni' %}" class="nav-item racuni">
+            <i class="fas fa-file-invoice"></i>
+            Računi
+          </a>
+          <a href="{% url 'radionica' %}" class="nav-item radionica">
+            <i class="fas fa-warehouse"></i>
+            Radionica
+          </a>
+          <a href="nadolazeci-servisi.html" class="nav-item nadolazeci-servisi">
+            <i class="fas fa-calendar-alt"></i>
+            Nadolazeći Servisi
+          </a>
+          <a href="statistika.html" class="nav-item statistika">
+            <i class="fas fa-chart-bar"></i>
+            Statistika
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i>
+            Postavke
+          </a>
+          <a href="index.html" class="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            Odjava
+          </a>
+        </div>
+      </aside>
+    {% block content %}{% endblock %}
+  </div>
+  </body>
+</html>

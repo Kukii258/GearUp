@@ -16,6 +16,12 @@ from upgear import views
 urlpatterns = [
 
     path("", views.index, name="index"),
+    path("dashboard/", views.dashboard, name="dashboard"),
+    path("vozila/", views.vozila, name="vozila"),
+    path("popravci/", views.popravci, name="popravci"),
+    path("racuni/", views.racuni, name="racuni"),
+    path("radionica/", views.radionica, name="radionica"),
+
 
     path('api/', include('upgear.urls')),
 
@@ -23,7 +29,6 @@ urlpatterns = [
     path('items/<int:pk>/', ItemDetailView.as_view(), name='item-detail'),  # Get token
 
 
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/",
         TemplateView.as_view(template_name="pages/about.html"),
