@@ -1,0 +1,207 @@
+{% extends "htmls/base.html" %}
+
+{% load static i18n %}
+
+{% block title %}GearUp - Statistika{% endblock %}
+{% block content %}
+  <head>
+    <title>Auto Servis Portal - Statistika</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script  src="{% static 'js/statistika.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/statistika.css' %}" />
+
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <img src="login_logo.png" alt="Auto Servis Logo" class="sidebar-logo">
+          <h2>Auto Servis</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-tachometer-alt"></i>
+            Kontrolna Ploča
+          </a>
+          <a href="vozila.html" class="nav-item">
+            <i class="fas fa-car"></i>
+            Vozila
+          </a>
+          <a href="popravci.html" class="nav-item">
+            <i class="fas fa-wrench"></i>
+            Popravci
+          </a>
+          <a href="racuni.html" class="nav-item">
+            <i class="fas fa-file-invoice"></i>
+            Računi
+          </a>
+          <a href="radionica.html" class="nav-item">
+            <i class="fas fa-warehouse"></i>
+            Radionica
+          </a>
+          <a href="nadolazeci-servisi.html" class="nav-item">
+            <i class="fas fa-calendar-alt"></i>
+            Nadolazeći Servisi
+          </a>
+          <a href="statistika.html" class="nav-item active">
+            <i class="fas fa-chart-bar"></i>
+            Statistika
+          </a>
+        </nav>
+        <div class="sidebar-footer">
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i>
+            Postavke
+          </a>
+          <a href="index.html" class="nav-item">
+            <i class="fas fa-sign-out-alt"></i>
+            Odjava
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <h1>Statistika</h1>
+          <div class="header-profile">
+            <span class="notification-badge">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </span>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="stats-container">
+          <!-- Quick Stats -->
+          <div class="quick-stats">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(34, 197, 94, 0.1);">
+                <i class="fas fa-wrench" style="color: #22c55e;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Aktivni Popravci</h3>
+                <p class="stat-number">12</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 8% od jučer
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(14, 165, 233, 0.1);">
+                <i class="fas fa-car" style="color: #0ea5e9;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Vozila u Redu</h3>
+                <p class="stat-number">8</p>
+                <span class="stat-trend negative">
+                  <i class="fas fa-arrow-down"></i> 3% od jučer
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(168, 85, 247, 0.1);">
+                <i class="fas fa-file-invoice-dollar" style="color: #a855f7;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Današnji Prihod</h3>
+                <p class="stat-number">21.500 kn</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 12% od jučer
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1);">
+                <i class="fas fa-calendar-check" style="color: #f59e0b;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Zakazani Servisi</h3>
+                <p class="stat-number">15</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 5% od prošlog tjedna
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-section">
+            <!-- Revenue Chart -->
+            <div class="chart-card">
+              <div class="chart-header">
+                <h2>Pregled Prihoda</h2>
+                <div class="chart-period">
+                  <button class="period-btn active" data-period="week" data-chart="revenue">Tjedan</button>
+                  <button class="period-btn" data-period="month" data-chart="revenue">Mjesec</button>
+                  <button class="period-btn" data-period="year" data-chart="revenue">Godina</button>
+                </div>
+              </div>
+              <canvas id="revenueChart"></canvas>
+            </div>
+
+            <!-- Daily Repairs Chart -->
+            <div class="chart-card">
+              <div class="chart-header">
+                <h2>Broj Popravaka po Danu</h2>
+                <div class="chart-period">
+                  <button class="period-btn active" data-period="week" data-chart="repairs">Tjedan</button>
+                  <button class="period-btn" data-period="month" data-chart="repairs">Mjesec</button>
+                  <button class="period-btn" data-period="year" data-chart="repairs">Godina</button>
+                </div>
+              </div>
+              <canvas id="repairsChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Additional Stats -->
+          <div class="additional-stats">
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(239, 68, 68, 0.1);">
+                <i class="fas fa-tools" style="color: #ef4444;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Prosječno Vrijeme Popravka</h3>
+                <p class="stat-number">3.5h</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-down"></i> 10% brže od prosjeka
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(34, 197, 94, 0.1);">
+                <i class="fas fa-user-check" style="color: #22c55e;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Stopa Povratka Klijenata</h3>
+                <p class="stat-number">85%</p>
+                <span class="stat-trend positive">
+                  <i class="fas fa-arrow-up"></i> 5% od prošlog mjeseca
+                </span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon" style="background: rgba(14, 165, 233, 0.1);">
+                <i class="fas fa-clock" style="color: #0ea5e9;"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Prosječno Vrijeme Čekanja</h3>
+                <p class="stat-number">2.3 dana</p>
+                <span class="stat-trend negative">
+                  <i class="fas fa-arrow-up"></i> 1 dan više od prosjeka
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

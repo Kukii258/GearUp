@@ -1,10 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends "htmls/base.html" %}
+{% load static i18n %}
 
-</body>
-</html>
+{% block title %}GearUp - Nadolazeći servisi{% endblock %}
+{% block content %}
+
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <script  src="{% static 'js/nadolazeci_servisi.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/nadolazeci_servisi.css' %}" />
+  </head>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="main-header">
+          <div class="header-profile">
+            <div class="header-icons">
+              <div class="message-badge">
+                <i class="fas fa-envelope"></i>
+                <span class="badge">2</span>
+              </div>
+              <span class="notification-badge">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+              </span>
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">Ivan Horvat</span>
+              <span class="profile-role">Glavni Mehaničar</span>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
+          </div>
+        </header>
+
+        <div class="page-header">
+          <h1>Nadolazeci Servisi</h1>
+          <button class="mobile-nav-toggle" id="mobileNavToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+          <!-- New Service Form (Initially Hidden) -->
+          <div class="service-form-container" id="serviceForm" style="display: none;">
+            <h2>Novi Servis</h2>
+            <form id="newServiceForm" class="service-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="chassisNumber">Broj Šasije</label>
+                  <input type="text" id="chassisNumber" name="chassisNumber" required class="form-control" placeholder="Unesite broj šasije">
+                </div>
+                <div class="form-group">
+                  <label for="serviceDate">Datum Servisa</label>
+                  <input type="datetime-local" id="serviceDate" name="serviceDate" required class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="carModel">Model Vozila</label>
+                  <input type="text" id="carModel" name="carModel" required class="form-control" placeholder="Unesite model vozila">
+                </div>
+                <div class="form-group">
+                  <label for="serviceStatus">Status Servisa</label>
+                  <select id="serviceStatus" name="serviceStatus" required class="form-control">
+                    <option value="pending">Zakazano</option>
+                    <option value="confirmed">Potvrđeno</option>
+                    <option value="in-progress">U Tijeku</option>
+                    <option value="completed">Završeno</option>
+                    <option value="cancelled">Otkazano</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="serviceDescription">Opis Potrebnih Radova</label>
+                <textarea id="serviceDescription" name="serviceDescription" required class="form-control" rows="4" placeholder="Opišite potrebne radove..."></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" id="cancelServiceBtn">
+                  <i class="fas fa-times"></i> Odustani
+                </button>
+                <button type="submit" class="btn-primary">
+                  <i class="fas fa-save"></i> Spremi Servis
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Services List -->
+          <div class="services-list">
+            <div class="service-card">
+              <div class="service-header">
+                <h3>BMW X5</h3>
+                <span class="service-status pending">Zakazano</span>
+              </div>
+              <div class="service-details">
+                <p><strong>Broj Šasije:</strong> WBAKF4109J9D48437</p>
+                <p><strong>Datum:</strong> 15.10.2023 09:00</p>
+                <p><strong>Opis:</strong> Redovni servis, zamjena ulja i filtera</p>
+              </div>
+              <div class="service-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+                <select class="status-select form-control">
+                  <option value="pending">Zakazano</option>
+                  <option value="confirmed">Potvrđeno</option>
+                  <option value="in-progress">U Tijeku</option>
+                  <option value="completed">Završeno</option>
+                  <option value="cancelled">Otkazano</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="service-card">
+              <div class="service-header">
+                <h3>Audi A4</h3>
+                <span class="service-status confirmed">Potvrđeno</span>
+              </div>
+              <div class="service-details">
+                <p><strong>Broj Šasije:</strong> WAUZZZ8K9NA123456</p>
+                <p><strong>Datum:</strong> 16.10.2023 14:30</p>
+                <p><strong>Opis:</strong> Zamjena kočnica i pregled ovjesa</p>
+              </div>
+              <div class="service-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-edit"></i> Uredi
+                </button>
+                <button class="btn-secondary">
+                  <i class="fas fa-trash"></i> Obriši
+                </button>
+                <select class="status-select form-control">
+                  <option value="pending">Zakazano</option>
+                  <option value="confirmed" selected>Potvrđeno</option>
+                  <option value="in-progress">U Tijeku</option>
+                  <option value="completed">Završeno</option>
+                  <option value="cancelled">Otkazano</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+{% endblock %}

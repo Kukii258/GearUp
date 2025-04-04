@@ -30,6 +30,9 @@ def radionica(request):
 def nadolazeci_servisi(request):
     return render(request, "htmls/nadolazeci_servisi.html")
 
+def statistika(request):
+    return render(request, "htmls/statistika.html")
+
 
 
 class ItemListCreateView(generics.ListCreateAPIView):

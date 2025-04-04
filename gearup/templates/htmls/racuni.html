@@ -12,10 +12,7 @@
       <!-- Main Content -->
       <main class="main-content">
         <header class="main-header">
-          <h1>Računi</h1>
-          <button class="mobile-nav-toggle" id="mobileNavToggle">
-            <i class="fas fa-bars"></i>
-          </button>
+
           <div class="header-profile">
             <span class="notification-badge">
               <i class="fas fa-bell"></i>
@@ -29,12 +26,20 @@
           </div>
         </header>
 
+          <div class="header-search-container">
+            <div class="header-search">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Pretraži po broju šasije..." id="searchInput">
+            </div>
+            <!-- Mobile Nav Toggle moved here -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+
         <div class="content-container">
           <div class="action-bar">
-            <div class="search-bar">
-              <i class="fas fa-search"></i>
-              <input type="text" placeholder="Pretraži po ID računa..." id="searchInput">
-            </div>
+
             <button class="btn-primary" id="newInvoiceBtn">
               <i class="fas fa-plus"></i> Novi Račun
             </button>

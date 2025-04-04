@@ -160,6 +160,7 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin-right: auto;
 }
 
 .notification-badge, .message-badge {
@@ -556,7 +557,23 @@ body {
   }
 
   .header-profile {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-icons {
+    margin-right: 0;
+  }
+
+  .profile-info {
+    display: block;
+    text-align: right;
+  }
+
+  .profile-image {
+    width: 32px;
+    height: 32px;
   }
 
   .stats-container {
@@ -605,6 +622,36 @@ body {
 
   .revenue-chart {
     display: none;
+  }
+
+  /* Show header profile elements on mobile */
+  .main-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .header-search-container {
+    order: 2;
+    width: 100%;
+  }
+
+  .header-profile {
+    order: 1;
+    width: 100%;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .profile-name {
+    font-size: 0.875rem;
+  }
+
+  .profile-role {
+    font-size: 0.75rem;
   }
 }
 
