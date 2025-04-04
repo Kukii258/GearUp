@@ -30,12 +30,9 @@ urlpatterns = [
     path('items/', ItemListCreateView.as_view(), name='item-list'),
     path('items/<int:pk>/', ItemDetailView.as_view(), name='item-detail'),  # Get token
 
+    path("admin/", admin.site.urls),
 
-    path(
-        "about/",
-        TemplateView.as_view(template_name="pages/about.html"),
-        name="about",
-    ),
+
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
