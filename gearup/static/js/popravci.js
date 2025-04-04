@@ -30,6 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+      // Mobile Navigation Toggle
+  const mobileNavToggle = document.getElementById('mobileNavToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  if (mobileNavToggle && sidebar) {
+    mobileNavToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+      const icon = mobileNavToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 &&
+          sidebar &&
+          !sidebar.contains(e.target) &&
+          mobileNavToggle &&
+          !mobileNavToggle.contains(e.target) &&
+          sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+        const icon = mobileNavToggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      }
+    });
+  }
+
   // Repair action buttons handlers
   document.querySelectorAll('.repair-actions button').forEach(button => {
     button.addEventListener('click', (e) => {

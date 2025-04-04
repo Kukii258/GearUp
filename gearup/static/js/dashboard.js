@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let hrefValue = Link.getAttribute("href");
     }
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize Revenue Chart
   const ctx = document.getElementById('revenueChart').getContext('2d');
@@ -114,9 +113,72 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Mobile Navigation Toggle
+  const mobileNavToggle = document.getElementById('mobileNavToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  if (mobileNavToggle && sidebar) {
+    mobileNavToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+      const icon = mobileNavToggle.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768 &&
+          sidebar &&
+          !sidebar.contains(e.target) &&
+          mobileNavToggle &&
+          !mobileNavToggle.contains(e.target) &&
+          sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
+        const icon = mobileNavToggle.querySelector('i');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-times');
+      }
+    });
+  }
+
   // Notification Badge Click Handler
   const notificationBadge = document.querySelector('.notification-badge');
   notificationBadge.addEventListener('click', () => {
     alert('Obavijesti uskoro dolaze!');
   });
+
+  // Message Popup Handler
+  const messageBadge = document.querySelector('.message-badge');
+  const messagePopup = document.querySelector('.message-popup');
+
+  if (messageBadge && messagePopup) {
+    messageBadge.addEventListener('click', (e) => {
+      e.stopPropagation();
+      messagePopup.classList.toggle('show');
+    });
+
+    // Close popup when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!messagePopup.contains(e.target) && !messageBadge.contains(e.target)) {
+        messagePopup.classList.remove('show');
+      }
+    });
+  }
+
+  // Message item click handler
+  document.querySelectorAll('.message-item').forEach(item => {
+    item.addEventListener('click', () => {
+      window.location.href = 'messages.html';
+    });
+  });
+
+  // Search Input Handler
+  const searchInput = document.querySelector('.header-search input');
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        alert(`Pretraživanje za: ${searchInput.value}`);
+      }
+    });
+  }
 });

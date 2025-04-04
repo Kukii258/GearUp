@@ -27,6 +27,9 @@ def racuni(request):
 def radionica(request):
     return render(request, "htmls/radionica.html")
 
+def nadolazeci_servisi(request):
+    return render(request, "htmls/nadolazeci_servisi.html")
+
 
 
 class ItemListCreateView(generics.ListCreateAPIView):

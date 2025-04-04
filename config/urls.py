@@ -21,6 +21,7 @@ urlpatterns = [
     path("popravci/", views.popravci, name="popravci"),
     path("racuni/", views.racuni, name="racuni"),
     path("radionica/", views.radionica, name="radionica"),
+    path("nadolazeci_servisi/", views.nadolazeci_servisi, name="nadolazeci_servisi"),
 
 
     path('api/', include('upgear.urls')),
