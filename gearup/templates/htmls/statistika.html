@@ -6,73 +6,28 @@
 {% block content %}
   <head>
     <title>Auto Servis Portal - Statistika</title>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script  src="{% static 'js/statistika.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/statistika.css' %}" />
-
   </head>
-  <body>
-    <div class="dashboard-container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <div class="sidebar-header">
-          <img src="login_logo.png" alt="Auto Servis Logo" class="sidebar-logo">
-          <h2>Auto Servis</h2>
-        </div>
-        <nav class="sidebar-nav">
-          <a href="dashboard.html" class="nav-item">
-            <i class="fas fa-tachometer-alt"></i>
-            Kontrolna Ploča
-          </a>
-          <a href="vozila.html" class="nav-item">
-            <i class="fas fa-car"></i>
-            Vozila
-          </a>
-          <a href="popravci.html" class="nav-item">
-            <i class="fas fa-wrench"></i>
-            Popravci
-          </a>
-          <a href="racuni.html" class="nav-item">
-            <i class="fas fa-file-invoice"></i>
-            Računi
-          </a>
-          <a href="radionica.html" class="nav-item">
-            <i class="fas fa-warehouse"></i>
-            Radionica
-          </a>
-          <a href="nadolazeci-servisi.html" class="nav-item">
-            <i class="fas fa-calendar-alt"></i>
-            Nadolazeći Servisi
-          </a>
-          <a href="statistika.html" class="nav-item active">
-            <i class="fas fa-chart-bar"></i>
-            Statistika
-          </a>
-        </nav>
-        <div class="sidebar-footer">
-          <a href="#" class="nav-item">
-            <i class="fas fa-cog"></i>
-            Postavke
-          </a>
-          <a href="index.html" class="nav-item">
-            <i class="fas fa-sign-out-alt"></i>
-            Odjava
-          </a>
-        </div>
-      </aside>
+
 
       <!-- Main Content -->
       <main class="main-content">
         <header class="main-header">
-          <h1>Statistika</h1>
           <div class="header-profile">
-            <span class="notification-badge">
-              <i class="fas fa-bell"></i>
-              <span class="badge">3</span>
-            </span>
+            <div class="header-icons">
+              <div class="message-badge">
+                <i class="fas fa-envelope"></i>
+                <span class="badge">2</span>
+              </div>
+              <span class="notification-badge">
+                <i class="fas fa-bell"></i>
+                <span class="badge">3</span>
+              </span>
+            </div>
             <div class="profile-info">
               <span class="profile-name">Ivan Horvat</span>
               <span class="profile-role">Glavni Mehaničar</span>
@@ -80,6 +35,15 @@
             <img src="https://ui-avatars.com/api/?name=Ivan+Horvat&background=0D8ABC&color=fff" alt="Profil" class="profile-image">
           </div>
         </header>
+
+        <div class="page-header">
+          <h1>Statistika</h1>
+          <button class="mobile-nav-toggle" id="mobileNavToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+
 
         <div class="stats-container">
           <!-- Quick Stats -->
@@ -204,4 +168,5 @@
           </div>
         </div>
       </main>
+
 {% endblock %}

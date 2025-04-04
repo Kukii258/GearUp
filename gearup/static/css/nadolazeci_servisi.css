@@ -231,3 +231,10 @@ select.form-control::-ms-expand {
 
 
 }
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Push everything to the right */
+    width: 100%;
+    gap: 20px; /* Space between elements */
+}

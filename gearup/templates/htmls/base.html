@@ -17,10 +17,12 @@
   <div class="dashboard-container">
     <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
+        <a href="{% url 'dashboard' %}" style="text-decoration: none">
         <div class="sidebar-header">
           <img src="{% static 'images/dashboard/logo.png' %}" alt="Auto Servis Logo" class="sidebar-logo">
           <h2>Auto Servis</h2>
         </div>
+          </a>
         <nav class="sidebar-nav">
           <a href="{% url 'dashboard' %}" class="nav-item dashboard">
             <i class="fas fa-tachometer-alt"></i>

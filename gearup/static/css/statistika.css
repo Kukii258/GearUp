@@ -158,3 +158,18 @@
     text-align: center;
   }
 }
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Push everything to the right */
+    width: 100%;
+    gap: 20px; /* Space between elements */
+}
+
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
