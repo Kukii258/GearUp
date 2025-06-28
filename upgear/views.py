@@ -13,7 +13,11 @@ def index(request):
 
 
 def dashboard(request):
-    return render(request, "htmls/dashboard.html")
+
+    korisnik = Korisnik.objects.get(id=2)
+    context = {'korisnik': korisnik}
+
+    return render(request,"htmls/dashboard.html",context)
 
 def vozila(request):
     return render(request, "htmls/vozila.html")

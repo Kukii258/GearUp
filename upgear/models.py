@@ -6,6 +6,8 @@ class Korisnik(models.Model):
     prezime = models.CharField(max_length=150, null=False, blank=True)
     broj_mobitela = models.IntegerField(null=False, blank=False)
     email = models.CharField(max_length=150, null=False, blank=False)
+    slika = models.ImageField(upload_to='album', null=True, blank=True)
+
 
     def __str__(self):
         return self.ime + " - " + self.prezime
